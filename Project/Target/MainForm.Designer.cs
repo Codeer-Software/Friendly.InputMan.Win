@@ -39,8 +39,10 @@
             this._comboBox = new GrapeCity.Win.Editors.GcComboBox(this.components);
             this.dropDownButton1 = new GrapeCity.Win.Editors.DropDownButton();
             this.gcShortcut1 = new GrapeCity.Win.Editors.GcShortcut(this.components);
+            this._multiLineText = new GrapeCity.Win.Editors.GcTextBox(this.components);
             ((System.ComponentModel.ISupportInitialize)(this._textBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this._comboBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this._multiLineText)).BeginInit();
             this.SuspendLayout();
             // 
             // _textBox
@@ -65,6 +67,7 @@
             listItem1,
             listItem2,
             listItem3});
+            this._comboBox.ListHeaderPane.Height = 19;
             this._comboBox.Location = new System.Drawing.Point(13, 39);
             this._comboBox.Name = "_comboBox";
             this.gcShortcut1.SetShortcuts(this._comboBox, new GrapeCity.Win.Editors.ShortcutCollection(new System.Windows.Forms.Keys[] {
@@ -83,17 +86,27 @@
             // 
             this.dropDownButton1.Name = "dropDownButton1";
             // 
+            // _multiLineText
+            // 
+            this._multiLineText.Location = new System.Drawing.Point(13, 120);
+            this._multiLineText.Multiline = true;
+            this._multiLineText.Name = "_multiLineText";
+            this._multiLineText.Size = new System.Drawing.Size(189, 99);
+            this._multiLineText.TabIndex = 2;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 261);
+            this.Controls.Add(this._multiLineText);
             this.Controls.Add(this._comboBox);
             this.Controls.Add(this._textBox);
             this.Name = "MainForm";
             this.Text = "MainForm";
             ((System.ComponentModel.ISupportInitialize)(this._textBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this._comboBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this._multiLineText)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -104,7 +117,7 @@
         private GrapeCity.Win.Editors.GcComboBox _comboBox;
         private GrapeCity.Win.Editors.GcShortcut gcShortcut1;
         private GrapeCity.Win.Editors.DropDownButton dropDownButton1;
-
+        private GrapeCity.Win.Editors.GcTextBox _multiLineText;
     }
 }
 

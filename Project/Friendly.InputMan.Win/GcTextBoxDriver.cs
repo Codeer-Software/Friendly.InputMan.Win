@@ -1,5 +1,6 @@
 ﻿using Codeer.Friendly;
 using System.Windows.Forms;
+using System.Drawing;
 
 namespace Friendly.InputMan.Win
 {
@@ -73,6 +74,67 @@ namespace Friendly.InputMan.Win
         {
             textBox.Focus();
             textBox.Text = text;
+        }
+
+#if ENG
+        /// <summary>
+        /// Sets the background color.
+        /// </summary>
+        /// <param name="backgroundColor">change target color.</param>
+#else
+        /// <summary>
+        /// 背景色を変更します。
+        /// </summary>
+        /// <param name="backgroundColor">背景色。</param>
+#endif
+        public void EmulateChangeBackColor(Color backgroudColor)
+        {
+            App[GetType(), "EmulateChangeBackColor"](AppVar, backgroudColor);
+        }
+
+#if ENG
+        /// <summary>
+        /// Returns true if textbox is multiline  enabled.
+        /// </summary>
+#else
+        /// <summary>
+        /// テキストボックスのマルチラインが有効ならばTrueを返します。
+        /// </summary>
+#endif
+        public bool MultiLine
+        {
+            get { return (bool)AppVar["MultiLine"]().Core; }
+        }
+
+#if ENG
+        /// <summary>
+        /// Sets the background color.
+        /// Executes asynchronously. 
+        /// </summary>
+        /// <param name="text">Text to use.</param>
+        /// <param name="async">Asynchronous execution.</param>
+#else
+        /// <summary>
+        /// 背景色を変更します。
+        /// 非同期で実行します。
+        /// </summary>
+        /// <param name="backColor">背景色。</param>
+        /// <param name="async">非同期実行オブジェクト。</param>
+#endif
+        public void EmulateChangeBackColor(Color backColor, Async async)
+        {
+            App[GetType(), "EmulateChangeBackColor", async](AppVar, backColor);
+        }
+
+        /// <summary>
+        /// 背景色を変更します。
+        /// </summary>
+        /// <param name="textBox">リッチテキストボックス。</param>
+        /// <param name="text">テキスト。</param>
+        static void EmulateChangeBackColor(Control textBox, Color backColor)
+        {
+            textBox.Focus();
+            textBox.BackColor = backColor;
         }
     }
 }

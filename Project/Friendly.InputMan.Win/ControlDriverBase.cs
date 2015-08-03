@@ -1,6 +1,7 @@
 ﻿using Codeer.Friendly;
 using Codeer.Friendly.Windows;
 using Friendly.InputMan.Win.Inside;
+using System.Drawing;
 
 namespace Friendly.InputMan.Win
 {
@@ -78,6 +79,34 @@ namespace Friendly.InputMan.Win
         public bool Enabled
         {
             get { return (bool)AppVar["Enabled"]().Core; }
+        }
+
+#if ENG
+        /// <summary>
+        /// Returns control's background Color.
+        /// </summary>
+#else
+        /// <summary>
+        /// コントロールの背景色を取得します。
+        /// </summary>
+#endif
+        public Color BackColor
+        {
+            get { return (Color)AppVar["BackColor"]().Core; }
+        }
+
+#if ENG
+        /// <summary>
+        /// Returns control's Foreground Color.
+        /// </summary>
+#else
+        /// <summary>
+        /// コントロールの前景色を取得します。
+        /// </summary>
+#endif
+        public Color ForeColor
+        {
+            get { return (Color)AppVar["ForeColor"]().Core; }
         }
 
         internal ControlDriverBase(AppVar appVar)
