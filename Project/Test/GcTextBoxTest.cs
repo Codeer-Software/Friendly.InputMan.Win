@@ -53,7 +53,7 @@ namespace Test
         [TestMethod]
         public void TestEmulateChangeTextMultiLine()
         {
-            _multiLineText.MultiLine.IsFalse("_multiLineText is not true in MultiLine Property.");
+            _multiLineText.Multiline.IsTrue("_multiLineText is not true in Multiline Property.");
             _multiLineText.EmulateChangeText("abc\r\nedf");
             _multiLineText.Text.Is("abc\r\nedf");
         }
