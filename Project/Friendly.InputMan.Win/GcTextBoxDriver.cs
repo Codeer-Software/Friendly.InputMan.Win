@@ -101,9 +101,9 @@ namespace Friendly.InputMan.Win
         /// テキストボックスのマルチラインが有効ならばTrueを返します。
         /// </summary>
 #endif
-        public bool MultiLine
+        public bool Multiline
         {
-            get { return (bool)AppVar["MultiLine"]().Core; }
+            get { return (bool)AppVar["Multiline"]().Core; }
         }
 
 #if ENG
