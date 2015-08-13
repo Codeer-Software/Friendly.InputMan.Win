@@ -126,11 +126,19 @@ namespace Friendly.InputMan.Win
             App[GetType(), "EmulateChangeBackColor", async](AppVar, backColor);
         }
 
+#if ENG
+        /// <summary>
+        /// Sets the background color.
+        /// </summary>
+        /// <param name="text">Text to use.</param>
+        /// <param name="backColor">Background color.</param>
+#else
         /// <summary>
         /// 背景色を変更します。
         /// </summary>
         /// <param name="textBox">リッチテキストボックス。</param>
-        /// <param name="text">テキスト。</param>
+        /// <param name="backColor">背景色</param>
+#endif
         static void EmulateChangeBackColor(Control textBox, Color backColor)
         {
             textBox.Focus();
