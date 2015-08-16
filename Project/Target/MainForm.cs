@@ -23,6 +23,10 @@ namespace Target
         {
             _comboBox.TextChanged += delegate { MessageBox.Show(""); };
         }
+        void ConnectComboBoxTextMaxLengthChanged()
+        {
+            _comboBox.TextChanged += delegate { MessageBox.Show(""); };
+        }
 
         void ConnectMultiLineTextBoxChanged()
         {
