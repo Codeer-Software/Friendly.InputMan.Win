@@ -36,6 +36,8 @@
     <Reference Include="Codeer.Friendly.Windows">
       <HintPath>..\packages\Codeer.Friendly.Windows.2.6.0\lib\net20\Codeer.Friendly.Windows.dll</HintPath>
     </Reference>
+    <Reference Include="GrapeCity.Framework.InputMan.v23, Version=2.3.2015.527, Culture=neutral, PublicKeyToken=fdd90f5c44b73170, processorArchitecture=MSIL" />
+    <Reference Include="GrapeCity.Win.Editors.v80, Version=8.0.2015.527, Culture=neutral, PublicKeyToken=0ce01a33ce55ca12, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />

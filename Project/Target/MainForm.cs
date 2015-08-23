@@ -23,10 +23,21 @@ namespace Target
         {
             _comboBox.TextChanged += delegate { MessageBox.Show(""); };
         }
-
+        void ConnectComboBoxTextMaxLengthChanged()
+        {
+            _comboBox.TextChanged += delegate { MessageBox.Show(""); };
+        }
         void ConnectMultiLineTextBoxChanged()
         {
             _multiLineText.TextChanged += delegate { MessageBox.Show(""); };
+        }
+        void ConnectSJISTextBoxTextChanged()
+        {
+            _textBoxShiftJIS.TextChanged += delegate { MessageBox.Show(""); };
+        }
+        void ConnectSJISComboBoxTextChanged()
+        {
+            _comboBox_ShiftJIS.TextChanged += delegate { MessageBox.Show(""); };
         }
     }
 }

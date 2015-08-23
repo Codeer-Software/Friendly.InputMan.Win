@@ -109,6 +109,47 @@ namespace Friendly.InputMan.Win
             get { return (Color)AppVar["ForeColor"]().Core; }
         }
 
+#if ENG
+        /// <summary>
+        /// Returns MaxLength in textBox
+        /// </summary>
+#else
+        /// <summary>
+        /// テキストボックスに入力可能な最大の長さを取得します。
+        /// </summary>
+#endif
+        public System.Int32 MaxLength
+        {
+            get { return (System.Int32)AppVar["MaxLength"]().Core; }
+        }
+
+#if ENG
+        /// <summary>
+        /// Returns CodePage in Textbox
+        /// </summary>
+#else
+        /// <summary>
+        /// テキストボックスの長さの単位を取得するCodePageを取得します。
+        /// </summary>
+#endif
+        public System.Int32 MaxLengthCodePage
+        {
+            get { return (System.Int32)AppVar["MaxLengthCodePage"]().Core; }
+        }
+#if ENG
+        /// <summary>
+        /// Returns charactor counts
+        /// </summary>
+#else
+        /// <summary>
+        /// テキストボックスの文字数を数える単位(char/Byte/TextElement)を取得します。
+        /// </summary>
+#endif
+        public System.Int32 MaxLengthUnit
+        {
+            get { return (System.Int32)AppVar["MaxLengthUnit"]().Core; }
+        }
+
         internal ControlDriverBase(AppVar appVar)
         {
             AppVar = appVar;
