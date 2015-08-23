@@ -63,5 +63,29 @@ namespace Test
             new NativeMessageBox(_main.WaitForNextModal()).EmulateButtonClick("OK");
             _comboBox.SelectedItemIndex.Is(1);
         }
+        [TestMethod]
+        public void TestEmulateChangeComboboxMaxLength()
+        {
+            string source = "012345678901234567890123456789012345678901234567890123456789";
+            string destination = "01234567890123456789012345678901234567890123456789";
+
+            _comboBox.EmulateChangeMaxLength(50);
+            _comboBox.EmulateChangeText(source);
+            _comboBox.Text.Is(destination);
+        }
+
+        [TestMethod]
+        public void TestEmulateChangeComboboxMaxLengthAsync()
+        {
+            string source = "012345678901234567890123456789012345678901234567890123456789";
+            string destination = "01234567890123456789012345678901234567890123456789";
+
+            _main.Dynamic().ConnectComboBoxTextMaxLengthChanged();
+            _comboBox.EmulateChangeMaxLength(50, new Async());
+            _main.Dynamic().ConnectTextBoxTextChanged();
+            _comboBox.EmulateChangeText(source, new Async());
+            new NativeMessageBox(_main.WaitForNextModal()).EmulateButtonClick("OK");
+            _comboBox.Text.Is(destination);
+        }
     }
 }

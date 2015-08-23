@@ -2,7 +2,6 @@
 using Codeer.Friendly.Windows;
 using Friendly.InputMan.Win.Inside;
 using System.Drawing;
-using System.Windows.Forms;
 
 namespace Friendly.InputMan.Win
 {
@@ -110,64 +109,6 @@ namespace Friendly.InputMan.Win
             get { return (Color)AppVar["ForeColor"]().Core; }
         }
 
-#if ENG
-        /// <summary>
-        /// Sets the MaxLength Property.
-        /// </summary>
-        /// <param name="MaxLength">change max length in textbox.</param>
-#else
-        /// <summary>
-        /// 最大文字列の長さ変更します。
-        /// </summary>
-        /// <param name="maxLength">最大文字列長</param>
-#endif
-        public void EmulateChangeMaxLength(System.Int32 maxLength)
-        {
-            App[GetType(), "EmulateChangeMaxLength"](AppVar, maxLength);
-        }
-
-#if ENG
-        /// <summary>
-        /// Sets the MaxLength Property.
-        /// Executes asynchronously. 
-        /// </summary>
-        /// <param name="maxLength">Max length in Textbox.</param>
-        /// <param name="async">Asynchronous execution.</param>
-#else
-        /// <summary>
-        /// 最大文字列長を変更します。
-        /// 非同期で実行します。
-        /// </summary>
-        /// <param name="maxLength">最大文字列長</param>
-        /// <param name="async">非同期実行オブジェクト。</param>
-#endif
-        public void EmulateChangeMaxLength(System.Int32 maxLength, Async async)
-        {
-            App[GetType(), "EmulateChangeMaxLength", async](AppVar, maxLength);
-        }
-
-#if ENG
-        /// <summary>
-        /// Sets the background color.
-        /// </summary>
-        /// <param name="text">Text to use.</param>
-        /// <param name="maxLength">Max length in Control.</param>
-#else
-        /// <summary>
-        /// 最大文字列長を変更します。
-        /// </summary>
-        /// <param name="textBox">リッチテキストボックス。</param>
-        /// <param name="maxLength">最大文字列長</param>
-#endif
-        static void EmulateChangeMaxLength(Control textBox, System.Int32 maxLength)
-        {
-            textBox.Focus();
-            if(textBox is System.Windows.Forms.TextBox)
-            {
-                TextBox textControl = (System.Windows.Forms.TextBox)textBox;
-                textControl.MaxLength = maxLength;
-            }
-        }
 
         internal ControlDriverBase(AppVar appVar)
         {
