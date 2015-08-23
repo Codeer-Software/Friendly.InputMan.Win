@@ -16,6 +16,8 @@ namespace Test
         WindowsAppFriend _app;
         WindowControl _main;
         GcComboBoxDriver _comboBox;
+        GcComboBoxDriver _comboBoxShiftJIS;
+
 
         [TestInitialize]
         public void TestInitialize()
@@ -23,6 +25,7 @@ namespace Test
             _app = new WindowsAppFriend(Process.Start(Target.Path));
             _main = WindowControl.FromZTop(_app);
             _comboBox = new GcComboBoxDriver(_main.Dynamic()._comboBox);
+            _comboBoxShiftJIS = new GcComboBoxDriver(_main.Dynamic()._comboBox_ShiftJIS);
         }
 
         [TestCleanup]
@@ -86,6 +89,27 @@ namespace Test
             _comboBox.EmulateChangeText(source, new Async());
             new NativeMessageBox(_main.WaitForNextModal()).EmulateButtonClick("OK");
             _comboBox.Text.Is(destination);
+        }
+        [TestMethod]
+        public void TestEmulateChangeShiftJISComboBoxMaxLength()
+        {
+            string source = "0123456789あいうえお亜意宇絵尾";
+            string destination = "0123456789あいうえお";
+
+            _comboBoxShiftJIS.EmulateChangeText(source);
+            _comboBoxShiftJIS.Text.Is(destination);
+        }
+
+        [TestMethod]
+        public void TestEmulateChangeShiftJISComboBoxMaxLengthAsync()
+        {
+            string source = "0123456789あいうえお亜意宇絵尾";
+            string destination = "0123456789あいうえお";
+
+            _main.Dynamic().ConnectSJISComboBoxTextChanged();
+            _comboBoxShiftJIS.EmulateChangeText(source, new Async());
+            new NativeMessageBox(_main.WaitForNextModal()).EmulateButtonClick("OK");
+            _comboBoxShiftJIS.Text.Is(destination);
         }
     }
 }
