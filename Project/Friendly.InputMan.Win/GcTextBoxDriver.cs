@@ -1,6 +1,7 @@
 ﻿using Codeer.Friendly;
 using System.Windows.Forms;
 using System.Drawing;
+using Friendly.InputMan.Win.Inside;
 
 namespace Friendly.InputMan.Win
 {
@@ -197,9 +198,7 @@ namespace Friendly.InputMan.Win
         static void EmulateChangeMaxLength(Control textBox, System.Int32 maxLength)
         {
             textBox.Focus();
-            var textControl = (GrapeCity.Win.Editors.GcTextBox)textBox;
-            
-            textControl.MaxLength = maxLength;
+            Invoker.Call(textBox, "set_MaxLength", maxLength);
         }
     }
 }

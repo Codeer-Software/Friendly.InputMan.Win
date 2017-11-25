@@ -224,9 +224,7 @@ namespace Friendly.InputMan.Win
         static void EmulateChangeMaxLength(Control comboBox, System.Int32 maxLength)
         {
             comboBox.Focus();
-            var comboBoxControl = (GrapeCity.Win.Editors.GcComboBox)comboBox;
-
-            comboBoxControl.MaxLength = maxLength;
+            Invoker.Call(comboBox, "set_MaxLength", maxLength);
         }
     }
 }
